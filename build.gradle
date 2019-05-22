@@ -44,7 +44,7 @@ def getBuildParameters(base, bits) {
         'library': "lib${base}.so",
         'setupArguments': ["-DBITZ:STRING=${bits}"],
         'buildArguments': [],
-        'env': ['CXXFLAGS': "-marm", 'CFLAGS': "-marm", 'LDFLAGS': "-marm"]
+        'env': ['CXXFLAGS': "", 'CFLAGS': "", 'LDFLAGS': ""]
     ]
   }
 }
