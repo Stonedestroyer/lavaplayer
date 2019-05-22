@@ -20,7 +20,7 @@ group = 'com.sedmelluq'
 import org.apache.tools.ant.taskdefs.condition.Os
 
 def getBuildParameters(base, bits) {
-  def bitSuffix = (bits == 32) ? 'x86' : 'x86-64'
+  def bitSuffix = 'arm'
 
   if (Os.isFamily(Os.FAMILY_WINDOWS)) {
     return [
@@ -44,7 +44,7 @@ def getBuildParameters(base, bits) {
         'library': "lib${base}.so",
         'setupArguments': ["-DBITZ:STRING=${bits}"],
         'buildArguments': [],
-        'env': ['CXXFLAGS': "-m${bits}", 'CFLAGS': "-m${bits}", 'LDFLAGS': "-m${bits}"]
+        'env': ['CXXFLAGS': "-marm", 'CFLAGS': "-marm", 'LDFLAGS': "-marm"]
     ]
   }
 }
