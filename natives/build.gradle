@@ -180,7 +180,7 @@ def buildOpusOnLinux(force) {
 
   if (force || !present) {
     def flags = "-fPIC -O3 -fdata-sections -ffunction-sections"
-    def process = ["./configure", "--enable-static", "--with-cpu=x86", "--host i686-w64-mingw32", "--with-pic", "CFLAGS=${flags}", "CXXFLAGS=${flags}", "LDFLAGS=${flags}"].
+    def process = ["./configure", "--enable-static", "--with-cpu=x86", "--host=i686-w64-mingw32", "--with-pic", "CFLAGS=${flags}", "CXXFLAGS=${flags}", "LDFLAGS=${flags}"].
         execute(null as String[], file("$projectDir/opus/opus-${opusVersion}"))
 
     waitForAndCheckSuccess(process, "Opus ./configure")
@@ -220,7 +220,7 @@ def buildMpg123OnLinux(force) {
     replaceAutotoolsVersion("$projectDir/mp3/mpg123-${mpg123Version}", '1.15.1')
 
     def flags = "-fPIC -O3 -fdata-sections -ffunction-sections"
-    def process = ['./configure', '--enable-static', '--with-cpu=x86', "--host i686-w64-mingw32", '--with-pic', "CFLAGS=$flags", "CXXFLAGS=$flags"].
+    def process = ['./configure', '--enable-static', '--with-cpu=x86', "--host=i686-w64-mingw32", '--with-pic', "CFLAGS=$flags", "CXXFLAGS=$flags"].
         execute(null as String[], file("$projectDir/mp3/mpg123-${mpg123Version}"))
 
     waitForAndCheckSuccess(process, "Mpg123 ./configure")
@@ -242,7 +242,7 @@ def prepareOggOnLinux(force) {
   def configured = file("$projectDir/vorbis/libogg-${oggVersion}/include/ogg/config_types.h").exists()
 
   if (force || !configured) {
-    def process = ["./configure", "--enable-static", "--build=x86-pc-linux-gnu", "--host i686-w64-mingw32", "--with-pic"].
+    def process = ["./configure", "--enable-static", "--build=x86-pc-linux-gnu", "--host=i686-w64-mingw32", "--with-pic"].
         execute(null as String[], file("$projectDir/vorbis/libogg-${oggVersion}"))
 
     process.waitForProcessOutput(System.out as Appendable, System.err)
