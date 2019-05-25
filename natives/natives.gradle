@@ -3,9 +3,9 @@ import org.apache.tools.ant.taskdefs.condition.Os
 def getBuildParameters(base) {
   if (Os.isFamily(Os.FAMILY_WINDOWS)) {
     return [
-        'identifier': "win-x86-64",
+        'identifier': "win-x86",
         'library': "${base}.dll",
-        'setupArguments': ['-DCMAKE_BUILD_TYPE=Release', '-A', 'x64'],
+        'setupArguments': ['-DCMAKE_BUILD_TYPE=Release'],
         'buildArguments': ['--config', 'Release'],
         'env': [:]
     ]
@@ -38,7 +38,7 @@ def createBuildTask(tasksHolder, config) {
   def buildDirectory = "${config.buildBase}/${parameters.identifier}"
   def distDirectory = "${config.projectBase}/dist/${parameters.identifier}"
   def deployDirectory = "${config.deployBase}/src/main/resources/natives/${parameters.identifier}"
-  def taskBase = "${config.name}-64"
+  def taskBase = "${config.name}-32"
 
   parameters.env.put('DIST_DIR', distDirectory)
   parameters.env.put('JAVA_HOME', getHomeDirectory())

@@ -154,7 +154,7 @@ def buildOpusOnWindows(force) {
     file(base).mkdirs()
 
     def devenv = getDevEnvLocation()
-    def platformName = "x64"
+    def platformName = "win32"
 
     def process = [devenv, "opus.sln", "/Project", "opus", "/Build", "Release|${platformName}"].
         execute(null as String[], file("$projectDir/opus/opus-${opusVersion}/win32/VS2015"))
