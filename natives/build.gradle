@@ -192,7 +192,7 @@ def buildOpusOnLinux(force) {
     waitForAndCheckSuccess(process, "Opus make")
 
     copy {
-      from "$projectDir/opus/opus-${opusVersion}/.libs/libopus.a"
+      from "$projectDir/opus/opus-${opusVersion}/.libs/libopus.dll.a"
       into "$projectDir/libs/64"
     }
   }
@@ -214,7 +214,7 @@ def replaceAutotoolsVersion(directory, originalVersion) {
 }
 
 def buildMpg123OnLinux(force) {
-  def present = file("${projectDir}/libs/64/libmpg123.a").exists()
+  def present = file("${projectDir}/libs/64/libmpg123.dll.a").exists()
 
   if (force || !present) {
     replaceAutotoolsVersion("$projectDir/mp3/mpg123-${mpg123Version}", '1.15.1')
@@ -232,7 +232,7 @@ def buildMpg123OnLinux(force) {
     waitForAndCheckSuccess(process, "make")
 
     copy {
-      from "$projectDir/mp3/mpg123-${mpg123Version}/src/libmpg123/.libs/libmpg123.a"
+      from "$projectDir/mp3/mpg123-${mpg123Version}/src/libmpg123/.libs/libmpg123.dll.a"
       into "$projectDir/libs/64"
     }
   }
