@@ -20,7 +20,7 @@ def getBuildParameters(base) {
   } else {
     return [
         'identifier': "linux-x86-64",
-        'library': "lib${base}.so",
+        'library': "lib${base}.dll",
         'setupArguments': ['-DCMAKE_BUILD_TYPE=Release'],
         'buildArguments': [],
         'env': [:]
