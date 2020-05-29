@@ -11,6 +11,7 @@ import com.sedmelluq.discord.lavaplayer.source.soundcloud.SoundCloudAudioSourceM
 import com.sedmelluq.discord.lavaplayer.source.twitch.TwitchStreamAudioSourceManager;
 import com.sedmelluq.discord.lavaplayer.source.vimeo.VimeoAudioSourceManager;
 import com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioSourceManager;
+import com.sedmelluq.discord.lavaplayer.source.pornhub.PornHubAudioSourceManager;
 
 /**
  * A helper class for registering built-in source managers to a player manager.
@@ -38,6 +39,7 @@ public class AudioSourceManagers {
     playerManager.registerSourceManager(new TwitchStreamAudioSourceManager());
     playerManager.registerSourceManager(new BeamAudioSourceManager());
     playerManager.registerSourceManager(new GetyarnAudioSourceManager());
+    playerManager.registerSourceManager(new PornHubAudioSourceManager());
     playerManager.registerSourceManager(new HttpAudioSourceManager(containerRegistry));
   }
 
