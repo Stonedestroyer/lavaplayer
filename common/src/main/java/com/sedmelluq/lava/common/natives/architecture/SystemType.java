@@ -3,10 +3,12 @@ package com.sedmelluq.lava.common.natives.architecture;
 import com.sedmelluq.lava.common.natives.NativeLibraryProperties;
 import com.sun.media.jfxmedia.logging.Logger;
 import java.util.Optional;
+import org.slf4j.LoggerFactory;
 
 public class SystemType {
   public final ArchitectureType architectureType;
   public final OperatingSystemType osType;
+  private static final org.slf4j.Logger log = LoggerFactory.getLogger(SystemType.class);
 
   public SystemType(ArchitectureType architectureType, OperatingSystemType osType) {
     this.architectureType = architectureType;
@@ -16,6 +18,8 @@ public class SystemType {
   public String formatSystemName() {
     if (osType.identifier() != null) {
       if (osType == DefaultOperatingSystemTypes.DARWIN) {
+        log.warn(osType.identifier());
+        log.warn(architectureType.identifier());
         Logger.logMsg(3, "Logging AIKA");
         Logger.logMsg(3, osType.identifier());
         Logger.logMsg(3, architectureType.identifier());
