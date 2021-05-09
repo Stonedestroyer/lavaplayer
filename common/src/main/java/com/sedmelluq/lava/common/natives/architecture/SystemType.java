@@ -20,9 +20,7 @@ public class SystemType {
       if (osType == DefaultOperatingSystemTypes.DARWIN) {
         log.warn(osType.identifier());
         log.warn(architectureType.identifier());
-        Logger.logMsg(3, "Logging AIKA");
-        Logger.logMsg(3, osType.identifier());
-        Logger.logMsg(3, architectureType.identifier());
+        log.warn("aika");
         return osType.identifier();
       } else {
         return osType.identifier() + "-" + architectureType.identifier();
