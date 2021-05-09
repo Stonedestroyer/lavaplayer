@@ -17,10 +17,7 @@ public class SystemType {
   public String formatSystemName() {
     if (osType.identifier() != null) {
       if (osType == DefaultOperatingSystemTypes.DARWIN) {
-        log.warn(osType.identifier());
-        log.warn(architectureType.identifier());
-        log.warn("aika");
-        return osType.identifier();
+        return osType.identifier() + "-" + architectureType.identifier();
       } else {
         return osType.identifier() + "-" + architectureType.identifier();
       }
