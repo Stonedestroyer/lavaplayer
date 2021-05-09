@@ -1,7 +1,6 @@
 package com.sedmelluq.lava.common.natives.architecture;
 
 import com.sedmelluq.lava.common.natives.NativeLibraryProperties;
-import com.sun.media.jfxmedia.logging.Logger;
 import java.util.Optional;
 import org.slf4j.LoggerFactory;
 
