@@ -120,14 +120,16 @@ public class NativeLibraryLoader {
   }
 
   private Path extractLibraryFromResources(SystemType systemType) {
-    log.info("Loading test");
-    log.info("Library name " + systemType.formatLibraryName(libraryName));
-    log.info("System name " + systemType.formatSystemName());
-    log.info("System type " + systemType.architectureType.toString());
-    log.info("Combo" + systemType.toString() + libraryName);
     try (InputStream libraryStream = binaryProvider.getLibraryStream(systemType, libraryName)) {
       if (libraryStream == null) {
-        throw new UnsatisfiedLinkError("Required library was not found");
+        throw new UnsatisfiedLinkError("Required library was not found" +
+                "Loading test\n" + "Library name " + systemType.formatLibraryName(libraryName)
+                + "\n" +
+                "System name " + systemType.formatSystemName()
+                + "\n" +
+                "System type " + systemType.architectureType.toString()
+                + "\n" +
+                "Combo" + systemType.toString() + libraryName + "\n");
       }
 
       Path extractedLibraryPath = prepareExtractionDirectory().resolve(systemType.formatLibraryName(libraryName));
