@@ -120,6 +120,11 @@ public class NativeLibraryLoader {
   }
 
   private Path extractLibraryFromResources(SystemType systemType) {
+    log.info("Loading test");
+    log.info("Library name " + systemType.formatLibraryName(libraryName));
+    log.info("System name " + systemType.formatSystemName());
+    log.info("System type " + systemType.architectureType.toString());
+    log.info("Combo" + systemType.toString() + libraryName);
     try (InputStream libraryStream = binaryProvider.getLibraryStream(systemType, libraryName)) {
       if (libraryStream == null) {
         throw new UnsatisfiedLinkError("Required library was not found");
